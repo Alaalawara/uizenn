@@ -1,0 +1,23 @@
+import { color, easeInOut, motion } from "framer-motion";
+
+export default function NotFound() {
+    return (
+        <motion.div layout className="w-full h-screen justify-center items-center flex flex-col">
+            <motion.span>
+                <svg xmlns="http://www.w3.org/2000/svg" width={200} height={200} className="dark:fill-[var(--fg)]" viewBox="0 0 24 24"><path d="m17.707 8.707-.793.793.793.793a1 1 0 1 1-1.414 1.414l-.793-.793-.793.793a1 1 0 0 1-1.414-1.414l.793-.793-.793-.793a1 1 0 1 1 1.414-1.414l.793.793.793-.793a1 1 0 1 1 1.414 1.414zm-10 3 .793-.793.793.793a1 1 0 0 0 1.414-1.414L9.914 9.5l.793-.793a1 1 0 1 0-1.414-1.414l-.793.793-.793-.793a1 1 0 1 0-1.414 1.414l.793.793-.793.793a1 1 0 1 0 1.414 1.414zM23 12A11 11 0 1 1 12 1a11.013 11.013 0 0 1 11 11zm-2 0a9 9 0 1 0-9 9 9.011 9.011 0 0 0 9-9zm-5 2H8a1 1 0 0 0 0 2h2v1a2 2 0 0 0 4 0v-1h2a1 1 0 0 0 0-2z" /></svg>           
+         </motion.span>
+            <motion.h1
+                initial={{
+                    x: 0,
+                    y: -50
+                }}
+                animate={{
+                    y: 20
+                }}
+                ease={{
+                    easeInOut
+                }}>
+                404 – Page Not Found</motion.h1>
+        </motion.div>
+    );
+}
