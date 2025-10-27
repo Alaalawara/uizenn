@@ -1,23 +1,30 @@
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
+import ComponentSidebar from '../components/ComponentSidebar';
+import { TocContext } from "../contexts/TocContext";
+import { useState } from "react";
+
 
 function ComponentsLayout() {
+  const [tocItems, setTocItems] = useState([]);
   return (
-    //normal formal design
-    <div className='flex py-10'>
-      <Sidebar />
-      <div className='flex-1'>
-      <Outlet/>
-      </div>
-    </div>
+    <TocContext.Provider value={{ items: tocItems, setItems: setTocItems }}>
+      <div className='grid grid-cols-4 justify-between py-10'>
 
-    //another design
-    // <div className='grid grid-cols-3 py-10'>
-    //   <Sidebar />
-    //   <div className='col-span-2'>
-    //     <Outlet />
-    //   </div>
-    // </div>
+        <div className="col-span-1">
+          <Sidebar />
+        </div>
+
+        <div className='col-span-2'>
+          <Outlet />
+        </div>
+
+        <div className="col-span-1 hidden lg:flex lg:flex-col lg:items-end">
+          <ComponentSidebar />
+        </div>
+
+      </div>
+    </TocContext.Provider>
   );
 }
 

@@ -1,6 +1,7 @@
 // src/pages/components/ButtonPage.jsx
-import { useState } from 'react';
-import React, { forwardRef } from 'react';
+import { useState, useEffect } from 'react';
+import CodeLayout from '../../componentLayout/CodeLayout';
+import { useToc } from '../../contexts/TocContext';
 
 const code = `function SimpleBadge() {
     return (
@@ -52,6 +53,21 @@ const code = `function SimpleBadge() {
 export default function BadgePage() {
     const [tab, setTab] = useState('preview');
     const [copied, setCopied] = useState(false);
+     const { setItems } = useToc();
+
+  const hasUsage = true;
+
+  useEffect(() => {
+    const list = [
+      { id: "usage", label: "Usage" }
+    ]
+      .filter((s) =>
+        (s.id === "usage" && hasUsage)
+      );
+    setItems?.(list);
+    return () => setItems?.([]);
+  }, [setItems, hasUsage]);
+
 
     const copy = async () => {
         try {
@@ -59,64 +75,22 @@ export default function BadgePage() {
             setCopied(true);
             setTimeout(() => setCopied(false), 1200);
         } catch {
-            // no-op; clipboard may be blocked
         }
     };
 
     return (
         <div className="flex flex-col gap-10">
-            <div className="flex flex-col gap-4 items-start justify-between">
+            <div id='usage' className="flex flex-col gap-4 items-start justify-between scroll-mt-24">
                 <h2 className="font-bold tracking-tight">Simple Badge</h2>
                 <p className="text-foreground">
                     Displays a badge or a component that looks like a badge.
                 </p>
             </div>
 
+            <CodeLayout tab={tab} setTab={setTab} filename='Badge.jsx' code={code} copied={copied} copy={copy}>
+                <SimpleBadge />
+            </CodeLayout>
 
-            <div className='flex flex-col gap-4'>
-                {/* Tabs */}
-                <div className="flex items-center gap-4 text-sm">
-                    <button
-                        className={`font-medium cursor-pointer ${tab === 'preview' ? '' : 'text-foreground'}`}
-                        onClick={() => setTab('preview')}
-                    >
-                        Preview
-                    </button>
-                    <button
-                        className={`font-medium cursor-pointer ${tab === 'code' ? '' : 'text-foreground'}`}
-                        onClick={() => setTab('code')}
-                    >
-                        Code
-                    </button>
-                </div>
-
-                {/* Panel */}
-                {tab === 'preview' ? (
-                    <div className="rounded-lg border border-foreground max-w-[800px] h-[400px] min-h-[400px] max-h-[400px]">
-                        <div className="relative h-[420px] w-full flex justify-center items-center">
-                            <div className="">
-                                <SimpleBadge />
-                            </div>
-                        </div>
-                    </div>
-                ) : (
-                    <div className="rounded-lg border border-foreground max-w-[800px] h-[400px] min-h-[400px] max-h-[400px] bg-secondary overflow-hidden">
-                        <div className="flex items-center justify-between border-b border-foreground px-3 py-2">
-                            <span className="text-xs font-medium text-foreground">button.jsx</span>
-                            <button
-                                type="button"
-                                onClick={copy}
-                                className="rounded-lg border cursor-pointer border-foreground bg-secondary px-2 py-1 text-xs font-semibold hover:opacity-70 active:translate-y-[1px] dark:bg-[var(--bg)] dark:text-[var(--fg)]"
-                            >
-                                {copied ? 'Copied!' : 'Copy'}
-                            </button>
-                        </div>
-            <pre className="max-w-[800px] overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none][scrollbar-width:none] p-3 text-sm dark:bg-[var(--bg)] dark:text-[var(--fg)]">
-                            <code>{code}</code>
-                        </pre>
-                    </div>
-                )}
-            </div>
         </div>
 
     );
@@ -157,11 +131,11 @@ function SimpleBadge() {
                     Files
                 </span>
                 <span className='px-2 rounded-lg bg-[#edf6f9] text-[#006d77] font-semibold flex flex-row'>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#006d77"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#006d77"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z" /></svg>
                     Recent
                 </span>
                 <span className='px-2 rounded-lg bg-[#ffe169] text-[#76520e] font-semibold flex flex-row'>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#76520e"><path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#76520e"><path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" /></svg>
                     Stars
                 </span>
             </div>

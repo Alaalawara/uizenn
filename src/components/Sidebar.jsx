@@ -6,7 +6,7 @@ function Sidebar() {
   const active = 'bg-secondary text-black';
 
   return (
-    <div className="w-[300px] h-screen">
+    <div className="sticky top-20 h-[calc(100vh-5rem)]">
       <nav>
         <ul className="list-none flex flex-col justify-center gap-10 overflow-hidden">
           <li className="flex flex-col gap-2">

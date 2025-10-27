@@ -1,11 +1,12 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   motion,
   useMotionTemplate,
   useMotionValue,
   useSpring,
 } from "framer-motion";
-
+import CodeLayout from '../../componentLayout/CodeLayout';
+import { useToc } from "../../contexts/TocContext";
 
 const Code1 = `const Example1 = () => {
   return (
@@ -88,47 +89,33 @@ const TiltCard = () => {
 
 `;
 
-const Code2 = `import { motion } from 'framer-motion';
 
-function OntapButton() {
-  return (
-         <span className='border-b-6 border-[#886372] rounded-b-2xl'>
-            <motion.button
-                whileHover={{ y: 3 }}
-                whileTap={{ y: [0, 3] }}
-                className="inline-flex items-center md:text-3xl sm:text-3xl justify-center cursor-pointer rounded-xl border-2 border-[#886372] bg-[#f9c4d2] text-[#886372] font-medium px-4 py-1.5 text-sm"
-            >
-                Button
-            </motion.button>
-         </span>
-  );
-}
-`;
-
-const Code3 = `import { motion } from 'framer-motion';
-
-function OntapButton() {
-  return (
-         <span className='border-b-6 border-[#780000] rounded-b-2xl'>
-            <motion.button
-                whileHover={{ y: 2 }}
-                whileTap={{ y: [0, 2] }}
-                className="inline-flex items-center md:text-3xl sm:text-3xl justify-center cursor-pointer rounded-xl border-2 border-[#780000] bg-[#CD201F] text-white font-medium px-4 py-1.5 text-sm"
-            >
-                Subscribe
-            </motion.button>
-        </span>
-  );
-}
-`;
+const Code2 =`npm i framer-motion tailwindcss`;
 
 export default function HoverCardPage() {
-  const [tab, setTab] = useState('preview');
   const [copied, setCopied] = useState(false);
+   const { setItems } = useToc();
+  
+    const hasInstallation = true;
+    const hasUsage = true;
+  
+    useEffect(() => {
+      const list = [
+        { id: "usage", label: "Usage" },
+        { id: "installation", label: "Installation" },
+      ]
+        .filter((s) =>
+          (s.id === "usage" && hasUsage) ||
+          (s.id === "installation" && hasInstallation)
+        );
+      setItems?.(list);
+      return () => setItems?.([]);
+    }, [setItems, hasInstallation, hasUsage]);
+  
 
   const copy = async () => {
     try {
-      await navigator.clipboard.writeText(code);
+      await navigator.clipboard.writeText(Code2);
       setCopied(true);
       setTimeout(() => setCopied(false), 1200);
     } catch { }
@@ -136,57 +123,16 @@ export default function HoverCardPage() {
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="flex flex-col gap-4 items-start">
+      <div id="usage" className="flex flex-col gap-4 items-start scroll-mt-24">
         <h2 className="font-bold tracking-tight text-2xl">Hover Card 3D</h2>
         <p className="text-foreground">Interactive 3D hover card built with Framer Motion and Tailwind CSS.</p>
       </div>
 
-      <div className="flex flex-col gap-4">
-        {/* Tabs */}
-        <div className="flex items-center gap-4 text-sm">
-          <button
-            className={`font-medium cursor-pointer ${tab === 'preview' ? '' : 'text-foreground'}`}
-            onClick={() => setTab('preview')}
-          >
-            Preview
-          </button>
-          <button
-            className={`font-medium cursor-pointer ${tab === 'code' ? '' : 'text-gray-500'}`}
-            onClick={() => setTab('code')}
-          >
-            Code
-          </button>
-        </div>
+      <CodeLayout filename="hoverCard3d.jsx" code={Code1}>
+        <Example1/>
+      </CodeLayout>
 
-        {/* Panel */}
-        {tab === 'preview' ? (
-          <div className="rounded-lg border border-foreground max-w-[800px] h-[400px] min-h-[400px] max-h-[400px]">
-            <div className="relative w-full h-[250px]">
-              <div className="absolute inset-0 grid">
-                <Example1 />
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className="rounded-lg border border-foreground max-w-[800px] h-[400px] min-h-[400px] max-h-[400px] bg-secondary overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none][scrollbar-width:none]">
-            <div className="flex items-center justify-between border-b border-foreground px-3 py-2">
-              <span className="text-xs font-medium text-foreground">3dhovercard.jsx</span>
-              <button
-                type="button"
-                onClick={copy}
-                className="rounded-lg border cursor-pointer border-foreground bg-secondary px-2 py-1 text-xs font-semibold hover:opacity-70 active:translate-y-[1px] dark:bg-[var(--bg)] dark:text-[var(--fg)]"
-              >
-                {copied ? 'Copied!' : 'Copy'}
-              </button>
-            </div>
-            <pre className="max-w-[800px] overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none][scrollbar-width:none] p-3 text-sm dark:bg-[var(--bg)] dark:text-[var(--fg)]">
-              <code1>{Code1}</code1>
-            </pre>
-          </div>
-        )}
-      </div>
-
-      <div className="flex flex-col gap-4 items-start">
+      <div id="installation" className="flex flex-col gap-4 items-start scroll-mt-24">
         <h3 className="font-medium tracking-tight text-xl">Installation</h3>
         <div className="rounded-lg border border-foreground max-w-[800px] w-[800px] bg-secondary overflow-hidden">
           <div className="flex items-center justify-between border-b border-foreground px-3 py-2">
@@ -200,11 +146,10 @@ export default function HoverCardPage() {
             </button>
           </div>
           <pre className="max-w-[800px] overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none][scrollbar-width:none] p-3 text-sm dark:bg-[var(--bg)] dark:text-[var(--fg)]">
-            npm i framer-motion tailwindcss
+            {Code2}
           </pre>
         </div>
       </div>
-
 
     </div>
   );
