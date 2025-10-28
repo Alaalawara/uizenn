@@ -6,7 +6,6 @@ import "./index.css";
 
 import RootLayout from "./Layout/RootLayout.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
-import Contact from "./components/Contact.jsx";
 import NotFound from "./Pages/notfound.jsx";
 
 // Components area
@@ -27,6 +26,17 @@ import StackCardsPage from "./components/cards/StackCardsPage.jsx";
 import BadgePage from "./components/badges/Badge.jsx";
 import AnimatedBadgePage from "./components/badges/AnimatedBadge.jsx";
 
+//text
+import TextBouncePage from "./components/texts/TextBouncePage.jsx";
+import TextMotionPage from "./components/texts/TextMotionPage.jsx";
+
+//input-fields
+import InputFieldPage from "./components/Input-field/InputFieldPage.jsx";
+
+//animtion
+import HoverAnimationPage from "./components/animation/HoverAnimationPage.jsx";
+import ShapeAnimationPage from "./components/animation/ShapeAnimtionPage.jsx";
+
 import ComponentsLayout from "./Pages/componentslayout.jsx";
 import Components from "./components/components.jsx";
 import AppShell from "./Layout/AppLayout .jsx";
@@ -40,7 +50,6 @@ const router = createBrowserRouter([
     </AppShell>, // persistent header/footer
     children: [
       { index: true, element: <LandingPage /> },
-      { path: "contact", element: <Contact /> },
 
       {
         path: "components",
@@ -49,8 +58,8 @@ const router = createBrowserRouter([
           { index: true, element: <Components /> }, // grid listing
 
           //badge
-           { path: "badge", element: <BadgePage /> },
-           { path: "animatedbadge", element: <AnimatedBadgePage /> },
+           { path: "badge/simplebadge", element: <BadgePage /> },
+           { path: "badge/animatedbadge", element: <AnimatedBadgePage /> },
 
           //buttons
           { path: "buttons/button", element: <ButtonPage /> },
@@ -58,14 +67,22 @@ const router = createBrowserRouter([
           { path: "buttons/ontapbutton", element: <OnTapButtonPage /> },
           { path: "buttons/examplebutton", element: <ExampleButtonPage /> },
 
-
           //cards
           { path: "cards/simplecard", element: <SimpleCardPage /> },
           { path: "cards/hovercard", element: <HoverCardPage /> },
           { path: "cards/blocktextCard", element: <BlockTextCardPage /> },
           { path: "cards/stackcards", element: <StackCardsPage /> },
 
+          //text-field
+           { path: "text/textbounce", element: <TextBouncePage /> },
+           { path: "text/text-motion", element: <TextMotionPage /> },
 
+           //input-field
+           { path: "input/inputfield", element: <InputFieldPage /> },
+
+           //animation
+           { path: "animation/hoveranimation", element: <HoverAnimationPage /> },
+           { path: "animation/shapeanimation", element: <ShapeAnimationPage /> },
 
           { path: "*", element: <NotFound /> },
         ],

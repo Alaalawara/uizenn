@@ -5,7 +5,6 @@ import useLenis from "../hooks/useLenis";
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import DelicateAsciiDots from '../components/asciibg';
-
 export default function LandingPage() {
   const navigate = useNavigate();
   const ref = React.useRef(null);
@@ -19,6 +18,7 @@ export default function LandingPage() {
 
         {/* main text */}
         <section className="px-20 py-10 md:px-20 md:py-10 gap-5 flex flex-col">
+
           <div className='flex p-2 bg-[var(--bg)] text-[var(--fg)]'>
             <motion.div
               ref={ref}
@@ -57,6 +57,7 @@ export default function LandingPage() {
               Browse Components
             </motion.button>
           </div>
+          
         </section>
 
         {/* line break */}
@@ -68,20 +69,8 @@ export default function LandingPage() {
             <h2 className='text-gray-500 font-medium'>A minimalist design  <br />  system foundation with maximal clarity and flow.</h2>
           </div>
 
-          {/* available components in numbers */}
-          <div className='flex flex-row gap-30'>
-            <span className='flex flex-col'>
-              <p className='text-9xl font-medium'>30+</p>
-              <p className='text-xl text-gray-500 font-medium'>components</p>
-            </span>
-            <span className='flex flex-col'>
-              <p className='text-9xl font-medium'>10+</p>
-              <p className='text-xl text-gray-500 font-medium'>text animation</p>
-            </span>
-            <span className='flex flex-col'>
-              <p className='text-9xl font-medium'>20+</p>
-              <p className='text-xl text-gray-500 font-medium'>buttons</p>
-            </span>
+          <div className='flex'>
+            <DelicateAsciiDots />
           </div>
         </section>
 
@@ -89,11 +78,6 @@ export default function LandingPage() {
         <div className='h-[1px] bg-[#e8e8e8e2] visible'></div>
 
         {/* next */}
-
-
-        {/* <div className='w-max-full'>
-              <DelicateAsciiDots/>
-        </div> */}
 
       </main>
 

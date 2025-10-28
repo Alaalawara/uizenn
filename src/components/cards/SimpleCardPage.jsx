@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import CodeLayout from "../../componentLayout/CodeLayout";
 import { useToc } from "../../contexts/TocContext";
+import InstallationLayout from "../../componentLayout/InstallationLayout";
 
 const Code1 = `import { motion } from 'framer-motion';
 
@@ -57,39 +58,27 @@ function SimpleCard() {
 }
 `;
 
-const Code4 = `npm i framer-motion tailwindcss`
-
 export default function SimpleCardPage() {
-  const [copied, setCopied] = useState(false);
-   const { setItems } = useToc();
-  
-    const hasInstallation = true;
-    const hasUsage = true;
-    const hasExamples = true;
-  
-    useEffect(() => {
-      const list = [
-        { id: "usage", label: "Usage" },
-        { id: "installation", label: "Installation" },
-        { id: "examples", label: "Examples" }
-      ]
-        .filter((s) =>
-          (s.id === "usage" && hasUsage) ||
-          (s.id === "installation" && hasInstallation) ||
-          (s.id === "examples" && hasExamples) 
-        );
-      setItems?.(list);
-      return () => setItems?.([]);
-    }, [setItems, hasInstallation, hasUsage, hasExamples]);
-  
+  const { setItems } = useToc();
 
-  const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(Code4);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1200);
-    } catch { }
-  };
+  const hasInstallation = true;
+  const hasUsage = true;
+  const hasExamples = true;
+
+  useEffect(() => {
+    const list = [
+      { id: "usage", label: "Usage" },
+      { id: "installation", label: "Installation" },
+      { id: "examples", label: "Examples" }
+    ]
+      .filter((s) =>
+        (s.id === "usage" && hasUsage) ||
+        (s.id === "installation" && hasInstallation) ||
+        (s.id === "examples" && hasExamples)
+      );
+    setItems?.(list);
+    return () => setItems?.([]);
+  }, [setItems, hasInstallation, hasUsage, hasExamples]);
 
   return (
     <div className="flex flex-col gap-10">
@@ -102,23 +91,8 @@ export default function SimpleCardPage() {
         <SimpleCard />
       </CodeLayout>
 
-      <div id="installation" className="flex flex-col gap-4 items-start scroll-mt-24">
-        <h3 className="font-medium tracking-tight text-xl">Installation</h3>
-        <div className="rounded-lg border border-foreground max-w-[800px] w-[800px] bg-secondary overflow-hidden">
-          <div className="flex items-center justify-between border-b border-foreground px-3 py-2">
-            <span className="text-xs font-medium text-foreground">npm</span>
-            <button
-              type="button"
-              onClick={copy}
-              className="rounded-lg border cursor-pointer border-foreground bg-secondary px-2 py-1 text-xs font-semibold hover:opacity-70 active:translate-y-[1px] dark:bg-[var(--bg)] dark:text-[var(--fg)]"
-            >
-              {copied ? 'Copied!' : 'Copy'}
-            </button>
-          </div>
-          <pre className="max-w-[800px] overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none][scrollbar-width:none] p-3 text-sm dark:bg-[var(--bg)] dark:text-[var(--fg)]">
-            {Code4}
-          </pre>
-        </div>
+      <div id='installation' className='scroll-mt-24'>
+        <InstallationLayout />
       </div>
 
       {/* example 2 */}
@@ -127,7 +101,7 @@ export default function SimpleCardPage() {
       </div>
 
       <CodeLayout filename="SimpleCard.jsx" code={Code2}>
-        <SimpleCard2/>
+        <SimpleCard2 />
       </CodeLayout>
 
       {/* example 3 */}
@@ -135,8 +109,8 @@ export default function SimpleCardPage() {
         <h3 className="font-medium tracking-tight text-xl">Button Link</h3>
       </div>
 
-       <CodeLayout filename="SimpleCard.jsx" code={Code3}>
-        <SimpleCard3/>
+      <CodeLayout filename="SimpleCard.jsx" code={Code3}>
+        <SimpleCard3 />
       </CodeLayout>
 
     </div>

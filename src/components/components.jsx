@@ -10,14 +10,20 @@ function Components() {
                 <Link hre to="/components/buttons/button" className='font-bold text-base w-fit px-2 py-1 rounded-lg hover:underline underline-offset-4'>
                     Buttons
                 </Link>
-                <Link hre to="/components/badge" className='font-bold text-base w-fit px-2 py-1 rounded-lg hover:underline underline-offset-4'>
+                <Link hre to="/components/badge/simplebadge" className='font-bold text-base w-fit px-2 py-1 rounded-lg hover:underline underline-offset-4'>
                     Badge
                 </Link>
                 <Link hre to="/components/cards/simplecard" className='font-bold text-base w-fit px-2 py-1 rounded-lg hover:underline underline-offset-4'>
                     Cards
                 </Link>
-                <Link hre to="/" className='font-bold text-base w-fit px-2 py-1 rounded-lg hover:underline underline-offset-4'>
-                    Font
+                <Link hre to="/components/text/textbounce" className='font-bold text-base w-fit px-2 py-1 rounded-lg hover:underline underline-offset-4'>
+                    Text
+                </Link>
+                <Link hre to="/components/input/inputfield" className='font-bold text-base w-fit px-2 py-1 rounded-lg hover:underline underline-offset-4'>
+                    Input Field
+                </Link>
+                <Link hre to="/components/animation/hoveranimation" className='font-bold text-base w-fit px-2 py-1 rounded-lg hover:underline underline-offset-4'>
+                    Animations
                 </Link>
             </div>
         </div>

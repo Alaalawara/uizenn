@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef, useCallback } from 'react';
 const DelicateAsciiDots = ({
-  backgroundColor = '#fff',
+  backgroundColor = '#f0f0f0',
   textColor = '85, 85, 85',
   gridSize = 80,
   removeWaveLine = true,
@@ -259,7 +259,7 @@ const DelicateAsciiDots = ({
   return (
     <div
       ref={containerRef}
-      className="w-[40rem] h-full absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] overflow-hidden"
+      className="w-full h-[40rem] relative overflow-hidden"
       style={{ backgroundColor }}>
       <canvas ref={canvasRef} className="block w-full h-full" />
     </div>

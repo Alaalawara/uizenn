@@ -22,9 +22,7 @@ export default function Footer() {
       <div className="grid grid-cols-2 gap-4 text-[var(--fg)] text-2xl font-medium">
         <a href="https://swarajdev.vercel.app" target="_blank" rel="noreferrer" className="hover:underline underline-offset-4">Portfolio</a>
         <a href="https://github.com/Alaalawara" target="_blank" rel="noreferrer" className="hover:underline underline-offset-4">Github</a>
-        <a href="https://x.com/loops_infinity" target="_blank" rel="noreferrer" className="hover:underline underline-offset-4">X</a>
-        <a href="https://demo.com" target="_blank" rel="noreferrer" className="hover:underline underline-offset-4">Demo</a>
-      </div>
+        <a href="https://x.com/loops_infinity" target="_blank" rel="noreferrer" className="hover:underline underline-offset-4">X</a>      </div>
     </footer>
   );
 }

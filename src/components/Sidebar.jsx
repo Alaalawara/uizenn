@@ -6,7 +6,7 @@ function Sidebar() {
   const active = 'bg-secondary text-black';
 
   return (
-    <div className="sticky top-20 h-[calc(100vh-5rem)]">
+    <div className="sticky top-20">
       <nav>
         <ul className="list-none flex flex-col justify-center gap-10 overflow-hidden">
           <li className="flex flex-col gap-2">
@@ -24,7 +24,7 @@ function Sidebar() {
           <li className="flex flex-col gap-2">
             <p className="text-foreground font-bold text-xl px-2">Badges</p>
             <NavLink
-              to="/components/badge"
+              to="/components/badge/simplebadge"
               className={({ isActive }) =>
                 `${base} ${isActive ? active : hover}`
               }
@@ -33,7 +33,7 @@ function Sidebar() {
               Simple Badge
             </NavLink>
              <NavLink
-              to="/components/animatedbadge"
+              to="/components/badge/animatedbadge"
               className={({ isActive }) =>
                 `${base} ${isActive ? active : hover}`
               }
@@ -111,17 +111,62 @@ function Sidebar() {
             </NavLink>
           </li>
 
-          <li>
+          <li className="flex flex-col gap-2">
+            <p className="text-foreground font-bold text-xl px-2">Text Field</p>
             <NavLink
-              to="/createuser"
+              to="/components/text/textbounce"
               className={({ isActive }) =>
-                `${isActive ? 'font-bold' : 'font-bold'}`
+                `${base} ${isActive ? active : hover}`
               }
-              style={{ color: 'var(--dark)', textDecoration: 'none' }}
+              end
             >
-              bugs / errors
+              Text Bounce
+            </NavLink>
+             <NavLink
+              to="/components/text/text-motion"
+              className={({ isActive }) =>
+                `${base} ${isActive ? active : hover}`
+              }
+            >
+              Text motion
             </NavLink>
           </li>
+
+          <li className="flex flex-col gap-2">
+            <p className="text-foreground font-bold text-xl px-2">Input Field</p>
+            <NavLink
+              to="/components/input/inputfield"
+              className={({ isActive }) =>
+                `${base} ${isActive ? active : hover}`
+              }
+              end
+            >
+             Input Field
+            </NavLink>
+          </li>
+
+           <li className="flex flex-col gap-2">
+            <p className="text-foreground font-bold text-xl px-2">Animation</p>
+            <NavLink
+              to="/components/animation/hoveranimation"
+              className={({ isActive }) =>
+                `${base} ${isActive ? active : hover}`
+              }
+              end
+            >
+             Hover Animation
+            </NavLink>
+            <NavLink
+              to="/components/animation/shapeanimation"
+              className={({ isActive }) =>
+                `${base} ${isActive ? active : hover}`
+              }
+              end
+            >
+             Shape Animation
+            </NavLink>
+          </li>
+
         </ul>
       </nav>
     </div>

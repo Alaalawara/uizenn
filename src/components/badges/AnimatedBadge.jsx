@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { cn } from "../../lib/utils"
 import CodeLayout from '../../componentLayout/CodeLayout';
 import { useToc } from '../../contexts/TocContext';
+import InstallationLayout from '../../componentLayout/InstallationLayout';
 
 const code = `function AnimatedBadge() {
     return (
@@ -51,10 +52,7 @@ const code = `function AnimatedBadge() {
 }
 `;
 
-const Code2 = `npm i framer-motion tailwindcss`
-
 export default function AnimatedBadgePage() {
-        const [copied, setCopied] = useState(false);
      const { setItems } = useToc();
 
   const hasInstallation = true;
@@ -73,15 +71,6 @@ export default function AnimatedBadgePage() {
     return () => setItems?.([]);
   }, [setItems, hasInstallation, hasUsage]);
 
-   const copy = async () => {
-        try {
-            await navigator.clipboard.writeText(Code2);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 1200);
-        } catch { }
-    };
-
-
     return (
         <div className="flex flex-col gap-10">
             <div id='usage' className="flex flex-col gap-4 items-start justify-between scroll-mt-24">
@@ -99,24 +88,8 @@ export default function AnimatedBadgePage() {
                 )}
             </CodeLayout>
 
-            <div id='installation' className="flex flex-col gap-4 items-start scroll-mt-24">
-                <h3 className="font-medium tracking-tight text-xl">Installation</h3>
-                <div className="rounded-lg border border-foreground max-w-[800px] w-[800px] bg-gray-50 overflow-hidden">
-                    <div className="flex items-center justify-between border-b border-foreground px-3 py-2">
-                        <span className="text-xs font-medium text-foreground">npm</span>
-                        <button
-                            type="button"
-                            onClick={copy}
-                            className="rounded-lg border cursor-pointer border-foreground bg-secondary px-2 py-1 text-xs font-semibold hover:opacity-70 active:translate-y-[1px] dark:bg-[var(--bg)] dark:text-[var(--fg)]"
-                        >
-                            {copied ? 'Copied!' : 'Copy'}
-                        </button>
-                    </div>
-                    <pre className="max-w-[800px] overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none][scrollbar-width:none] p-3 text-sm dark:bg-[var(--bg)] dark:text-[var(--fg)]">
-                        <code>{Code2}</code>
-                    </pre>
-                </div>
-
+             <div id='installation' className='scroll-mt-24'>
+            <InstallationLayout/>
             </div>
         </div>
     );

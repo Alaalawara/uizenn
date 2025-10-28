@@ -61,7 +61,7 @@ export default function CodeLayout({
 
 
             {tab === "preview" ? (
-                <div className="rounded-lg border border-foreground max-w-[800px]">
+                <div className="rounded-lg border border-foreground w-full">
                     <div className="relative h-[420px] w-full">
                         <div className="absolute inset-0 grid place-items-center">
                             {onRefresh ? (
@@ -75,7 +75,7 @@ export default function CodeLayout({
                     </div>
                 </div>
             ) : (
-                    <div className="rounded-lg border border-foreground min-h-[400px] max-w-[800px] w-[800px] bg-secondary overflow-hidden">
+                    <div className="rounded-lg border border-foreground min-h-[420px] w-full bg-secondary overflow-hidden">
                     <div className="flex items-center justify-between border-b border-foreground px-3 py-2">
                         <span className="text-xs font-medium text-foreground">{filename}</span>
                         <button
@@ -86,7 +86,7 @@ export default function CodeLayout({
                             {copied ? "Copied!" : "Copy"}
                         </button>
                     </div>
-                    <pre className="max-w-[800px] overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] p-3 text-sm dark:bg-[var(--bg)] dark:text-[var(--fg)]">
+                    <pre className="w-full overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] p-3 text-sm dark:bg-[var(--bg)] dark:text-[var(--fg)]">
                         <code>{code}</code>
                     </pre>
                 </div>
