@@ -53,10 +53,13 @@ export default function ShapeAnimationPage() {
     );
 }
 
-function CircleAnimation() {
+export function CircleAnimation({ count = 25 }) {
+    const items = Array.from({ length: count })
     return (
-        <div className="flex flex-col">
-            <p className="h-5 w-5 bg-black dark:bg-[var(--fg)] rounded-full hover:scale-210 delay-300" />
+        <div className="grid grid-cols-5 gap-1">
+            {items.map((_, i) =>
+                <p key={i} className="h-5 w-5 bg-black dark:bg-[var(--fg)] rounded-full hover:bg-[var(--bg)] hover:delay-0 [transition-delay:0.5s] ease-in-out hover:scale-120" />
+            )}
         </div>
     );
 }
@@ -69,18 +72,26 @@ function SquareAnimation() {
     );
 }
 
-function TriangleAnimation() {
+export function TriangleAnimation() {
     return (
-        <div className="flex flex-col">
-            <div class="border-solid border-b-black border-b-25 border-x-transparent border-x-14 border-t-0 hover:animate-spin"></div>
+        <div>
+            <svg width="300" height="300">
+                <path d="M150,0 225,150 75,150" className="fill-[var(--fg)] hover:fill-[var(--bg)]" />
+                <path d="M0,300 75,150 150,300" className="fill-[var(--fg)] hover:fill-[var(--bg)]" />
+                <path d="M75,150 225,150 150,300" className="fill-[var(--fg)] hover:fill-[var(--bg)]" />
+                <path d="M150,300 300,300 225,150" className="fill-[var(--fg)] hover:fill-[var(--bg)] hover:delay-0 [transition-delay:0.5s] ease-in-out" />
+            </svg>
         </div>
     );
 }
 
-const Code1 = `function CircleAnimation() {
+const Code1 = `function CircleAnimation({ count = 25 }) {
+    const items = Array.from({ length: count })
     return (
-        <div className="flex flex-col">
-            <p className="h-5 w-5 bg-black dark:bg-[var(--fg)] rounded-full hover:scale-210 delay-300" />
+        <div className="grid grid-cols-5 gap-1">
+            {items.map((_,i)=>
+            <p key={i} className="h-5 w-5 bg-black rounded-full hover:bg-white hover:delay-0 [transition-delay:0.5s] ease-in-out hover:scale-120" />
+            )}
         </div>
     );
 }
@@ -89,15 +100,20 @@ const Code1 = `function CircleAnimation() {
 const Code2 = `function SquareAnimation() {
     return (
         <div className="flex flex-col">
-            <p className="h-5 w-5 bg-black dark:bg-[var(--fg)] hover:scale-210 delay-300" />
+            <p className="h-5 w-5 bg-black hover:scale-210 delay-300" />
         </div>
     );
 }`;
 
 const Code3 = `function TriangleAnimation() {
     return (
-        <div className="flex flex-col">
-            <div class="border-solid border-b-black border-b-25 border-x-transparent border-x-14 border-t-0 hover:animate-spin"></div>
+        <div>
+            <svg width="300" height="300">
+                <path d="M150,0 225,150 75,150" className="fill-[var(--fg)] hover:fill-[var(--bg)]" />
+                <path d="M0,300 75,150 150,300" className="fill-[var(--fg)] hover:fill-[var(--bg)]" />
+                <path d="M75,150 225,150 150,300" className="fill-[var(--fg)] hover:fill-[var(--bg)]" />
+                <path d="M150,300 300,300 225,150" className="fill-[var(--fg)] hover:fill-[var(--bg)] hover:delay-0 [transition-delay:0.5s] ease-in-out" />
+            </svg>
         </div>
     );
 }

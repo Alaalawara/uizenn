@@ -37,6 +37,10 @@ import InputFieldPage from "./components/Input-field/InputFieldPage.jsx";
 import HoverAnimationPage from "./components/animation/HoverAnimationPage.jsx";
 import ShapeAnimationPage from "./components/animation/ShapeAnimtionPage.jsx";
 
+//input-fields
+import SignUpPage from "./components/pages/SignupPage.jsx";
+import LoginPage from "./components/pages/LoginPage.jsx";
+
 import ComponentsLayout from "./Pages/componentslayout.jsx";
 import Components from "./components/components.jsx";
 import AppShell from "./Layout/AppLayout .jsx";
@@ -83,6 +87,10 @@ const router = createBrowserRouter([
            //animation
            { path: "animation/hoveranimation", element: <HoverAnimationPage /> },
            { path: "animation/shapeanimation", element: <ShapeAnimationPage /> },
+
+           //pages
+           { path: "pages/signuppage", element: <SignUpPage /> },
+           { path: "pages/loginpage", element: <LoginPage /> },
 
           { path: "*", element: <NotFound /> },
         ],
