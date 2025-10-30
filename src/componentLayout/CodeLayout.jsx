@@ -32,31 +32,35 @@ export default function CodeLayout({
 
     return (
         <div className='flex flex-col gap-4'>
-            {/* Tabs */}
-              <div className="flex items-center gap-4 text-sm">
-                <button
-                    className={`font-medium cursor-pointer ${tab === 'preview' ? '' : 'text-foreground'}`}
-                    onClick={() => setTab('preview')}
-                >
-                    Preview
-                </button>
-                <button
-                    className={`font-medium cursor-pointer ${tab === 'code' ? '' : 'text-foreground'}`}
-                    onClick={() => setTab('code')}
-                >
-                    Code
-                </button>
-                {enableRefresh && (
+
+            <div className="flex flex-row justify-between gap-4 text-sm">
+                <span className='grid grid-cols-2 gap-2'>
                     <button
-                        onClick={doRefresh}
-                        type="button"
-                        aria-label="Replay animation"
-                        title="Replay animation"
-                        className="ml-137 cursor-pointer"
+                        className={`font-medium cursor-pointer ${tab === 'preview' ? '' : 'text-foreground'}`}
+                        onClick={() => setTab('preview')}
                     >
-                        <span className='text-foreground hover:dark:text-[var(--fg)]'>Refresh</span>
+                        Preview
                     </button>
-                )}
+                    <button
+                        className={`font-medium cursor-pointer ${tab === 'code' ? '' : 'text-foreground'}`}
+                        onClick={() => setTab('code')}
+                    >
+                        Code
+                    </button>
+                </span>
+                <span>
+                    {enableRefresh && (
+                        <button
+                            onClick={doRefresh}
+                            type="button"
+                            aria-label="Replay animation"
+                            title="Replay animation"
+                            className="cursor-pointer"
+                        >
+                            <span className='text-foreground hover:dark:text-[var(--fg)]'>Refresh</span>
+                        </button>
+                    )}
+                </span>
             </div>
 
 
@@ -75,7 +79,7 @@ export default function CodeLayout({
                     </div>
                 </div>
             ) : (
-                    <div className="rounded-lg border border-foreground min-h-[420px] w-full bg-secondary overflow-hidden">
+                <div className="rounded-lg border border-foreground min-h-[420px] w-full bg-foreground/15 overflow-hidden">
                     <div className="flex items-center justify-between border-b border-foreground px-3 py-2">
                         <span className="text-xs font-medium text-foreground">{filename}</span>
                         <button
@@ -86,7 +90,7 @@ export default function CodeLayout({
                             {copied ? "Copied!" : "Copy"}
                         </button>
                     </div>
-                    <pre className="w-full overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] p-3 text-sm dark:bg-[var(--bg)] dark:text-[var(--fg)]">
+                    <pre className="w-full overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] p-3 text-sm text-[var(--fg)] dark:text-[var(--fg)]">
                         <code>{code}</code>
                     </pre>
                 </div>

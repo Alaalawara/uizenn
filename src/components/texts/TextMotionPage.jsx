@@ -43,8 +43,12 @@ export default function TextMotionPage() {
         </p>
       </div>
 
-      <CodeLayout filename='TextMotion.jsx' code={code}>
-        <MotionOneText/>
+      <CodeLayout filename='Marquee.jsx' code={code}>
+       <section className="relative z-10 mx-auto w-full max-w-none overflow-hidden">
+        <Marquee
+          items={["Badges", "Buttons", "Cards", "Inputs", "Text", "Animation", "Pages", "Overlays", "Avatars"]}
+        />
+      </section>
       </CodeLayout>
 
       <div id='installation' className='scroll-mt-24'>
@@ -54,66 +58,51 @@ export default function TextMotionPage() {
   );
 }
 
-const code = `function MotionOneText() {
+const code = `function Marquee({ items }) {
+  const row = [...items, ...items, ...items];
   return (
-    <section className="w-full">
-      <div className="mx-auto w-full max-w-[200px] px-4">
-        <ParallaxText baseVelocity={-5}>Framer Motion</ParallaxText>
-        <ParallaxText baseVelocity={5}>Scroll velocity</ParallaxText>
-      </div>
-    </section>
-  );
-}
-
-function ParallaxText({ children, baseVelocity = 100 }) {
-  const baseX = useMotionValue(0);
-  const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 50,
-    stiffness: 400
-  });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
-    clamp: false
-  });
-
-  const x = useTransform(baseX, (v) => "$-{wrap(20, 45, v)}%");
-
-  const directionFactor = useRef(1);
-  useAnimationFrame((t, delta) => {
-    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
-
-    if (velocityFactor.get() < 0) {
-      directionFactor.current = -1;
-    } else if (velocityFactor.get() > 0) {
-      directionFactor.current = 1;
-    }
-
-    moveBy += directionFactor.current * moveBy * velocityFactor.get();
-
-    baseX.set(baseX.get() + moveBy);
-  });
-
-  return (
-    <div className="parallax relative w-full max-w-[1200px] mx-auto overflow-hidden">
-      <motion.div className="scroller flex flex-nowrap gap-8 whitespace-nowrap" style={{ x }}>
-        <span>{children} </span>
-        <span>{children} </span>
+    <div className="relative w-full py-3 [mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
+      <motion.div
+        className="flex gap-8 text-sm font-medium text-foreground/70"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+      >
+        {row.map((it, i) => (
+          <span key={i} className="inline-flex items-center gap-2">
+            <Dot /> {it}
+          </span>
+        ))}
       </motion.div>
     </div>
   );
 }
+
+function Dot() {
+  return <span className="inline-block h-1.5 w-1.5 rounded-full bg-foreground/40" />;
+}
 `;
 
-function MotionOneText() {
+export function Marquee({ items }) {
+  const row = [...items, ...items, ...items];
   return (
-    <section className="w-full">
-      <div className="mx-auto w-full max-w-[200px] px-4">
-        <ParallaxText baseVelocity={-5}>Framer Motion</ParallaxText>
-        <ParallaxText baseVelocity={5}>Scroll velocity</ParallaxText>
-      </div>
-    </section>
+    <div className="relative w-full py-3 [mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
+      <motion.div
+        className="flex gap-8 text-sm font-medium text-foreground/70"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+      >
+        {row.map((it, i) => (
+          <span key={i} className="inline-flex items-center gap-2">
+            <Dot /> {it}
+          </span>
+        ))}
+      </motion.div>
+    </div>
   );
+}
+
+function Dot() {
+  return <span className="inline-block h-1.5 w-1.5 rounded-full bg-foreground/40" />;
 }
 
 

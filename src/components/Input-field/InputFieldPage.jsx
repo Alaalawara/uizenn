@@ -143,8 +143,8 @@ function InputField() {
 function FileInput() {
     return (
         <div className='flex flex-col gap-2 items-start justify-center'>
-            <p className='text-black'>upload file</p>
-            <input className='border-2 border-gray-300 rounded-lg px-2 py-1 text-black' type="file" />
+            <p className='text-[var(--fg)]'>upload file</p>
+            <input className='border-2 border-gray-300 rounded-lg px-2 py-1 text-[var(--fg)]' type="file" />
         </div>
     );
 }

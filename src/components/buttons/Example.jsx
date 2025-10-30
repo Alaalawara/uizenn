@@ -1,6 +1,4 @@
-// src/pages/components/ButtonPage.jsx
-import { useState } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import CodeLayout from '../../componentLayout/CodeLayout';
 
 const code = `import React from 'react';

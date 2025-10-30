@@ -116,12 +116,12 @@ function TextBounce() {
         exit={{ opacity: 0, y: 30 }}
         transition={{ duration: 3 }}
         className="flex flex-row animate-bounce dalay-500">
-        <Link to="/"><h1 className='text-black font-medium m-0'>uizenn</h1></Link>
+        <Link to="/"><h1 className='text-[var(--fg)] font-lg m-0'>uizenn</h1></Link>
       </motion.div>
       <motion.p
         variants={variants}
         animate={isReverse ? "slideReverse" : "slide"}
-        className='min-w-[140px] h-1 bg-black absolute top-56'></motion.p>
+        className='min-w-[140px] h-1 bg-[var(--fg)] absolute top-56'></motion.p>
     </div>
   );
 }
