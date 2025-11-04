@@ -44,8 +44,12 @@ export default function RoadMapPage() {
                 </p>
             </div>
 
-            <CodeLayout filename='MagneticButton.jsx' code={code}>
-                <Roadmap/>
+            <CodeLayout filename='MagneticButton.jsx' code={code} enableRefresh>
+                {({ refreshKey }) => (
+                    <div key={refreshKey} className="lg:w-[600px] w-[200px]">
+                        <Roadmap />
+                    </div>
+                )}
             </CodeLayout>
 
             <div id='installation' className='scroll-mt-24'>

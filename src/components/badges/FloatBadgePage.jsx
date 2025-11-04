@@ -36,7 +36,7 @@ export default function FloatBadgenPage() {
       <CodeLayout filename='FloatBadge.jsx' code={code} enableRefresh>
         {({ refreshKey }) => (
           <div key={refreshKey}>
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-wrap justify-center items-center gap-2">
               <FloatBadge>Framer Motion</FloatBadge>
               <FloatBadge delay={0.12}>Tailwind CSS</FloatBadge>
               <FloatBadge delay={0.22}>Dark Mode</FloatBadge>

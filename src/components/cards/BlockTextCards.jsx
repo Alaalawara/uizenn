@@ -32,7 +32,7 @@ export default function BlockTextCardPage() {
 
       <CodeLayout filename="AnimatedBlockTextCard.jsx" code={Code1} enableRefresh>
         {({ refreshKey }) => (
-          <div key={refreshKey}>
+          <div key={refreshKey} className="w-[240px] lg:w-full">
             <Example />
           </div>
         )}

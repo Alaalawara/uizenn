@@ -56,7 +56,7 @@ export default function HoverAnimationPage() {
 function HoverAnimation({ count = 220 }) {
     const items = Array.from({ length: count });
     return (
-        <div className="w-[600px] h-50 mt-3 rounded-md grid grid-cols-22 grid-rows-10">
+        <div className="lg:w-[600px] w-200px h-50 mt-3 rounded-md grid grid-cols-22 grid-rows-10">
             {items.map((_, i) => (
                 <div key={i} className="flex -inset-4">
                     <p className="text-2xl font-bold text-neutral-400 transition-all duration-0 hover:text-[var(--fg)] cursor-default hover:delay-0 [transition-delay:0.5s] ease-in-out hover:scale-120">
@@ -71,7 +71,7 @@ function HoverAnimation({ count = 220 }) {
 function DollarAnimation({ count = 220 }) {
     const items = Array.from({ length: count });
     return (
-        <div className="w-[600px] h-60 mt-3 rounded-md grid grid-cols-22 grid-rows-10">
+        <div className="lg:w-[600px] w-200px h-60 mt-3 rounded-md grid grid-cols-22 grid-rows-10">
             {items.map((_, i) => (
                 <div key={i} className="flex -inset-4">
                     <p className="text-2xl font-bold text-green-300 transition-all duration-0 hover:text-green-600 cursor-default hover:delay-0 [transition-delay:0.5s] ease-in-out hover:scale-120">
@@ -86,7 +86,7 @@ function DollarAnimation({ count = 220 }) {
 function StarAnimation({ count = 220 }) {
     const items = Array.from({ length: count });
     return (
-        <div className="w-[600px] h-60 mt-3 rounded-md grid grid-cols-22 grid-rows-10">
+        <div className="lg:w-[600px] w-200px h-60 mt-3 rounded-md grid grid-cols-22 grid-rows-10">
             {items.map((_, i) => (
                 <div key={i} className="flex -inset-4">
                     <p className="text-2xl font-bold text-yellow-300 transition-all duration-0 hover:text-yellow-600 cursor-default hover:delay-0 [transition-delay:0.5s] ease-in-out hover:scale-120">

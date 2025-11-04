@@ -4,7 +4,7 @@ import Header from "../components/Header"
 export default function RootLayout() {
 
     return (
-        <main className='w-full px-15'>
+        <main className='w-full px-4 lg:px-15'>
             <Header />
             <main>
                 <Outlet />

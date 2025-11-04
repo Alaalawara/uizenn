@@ -46,7 +46,7 @@ export default function TextMotionPage() {
       <CodeLayout filename='Marquee.jsx' code={code}>
        <section className="relative z-10 mx-auto w-full max-w-none overflow-hidden">
         <Marquee
-          items={["Badges", "Buttons", "Cards", "Inputs", "Text", "Animation", "Pages", "Overlays", "Avatars"]}
+          items={["Badges", "Buttons", "Cards", "Inputs", "Text", "Animation", "Pages"]}
         />
       </section>
       </CodeLayout>

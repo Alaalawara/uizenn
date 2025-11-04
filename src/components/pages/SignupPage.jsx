@@ -61,17 +61,17 @@ function SimpleSignUp() {
             <input
                 type="text"
                 placeholder="full name"
-                class="px-2 py-1 border-2 rounded-lg border-neutral-400 focus:border-[var(--fg)] focus:outline focus:outline-[var(--fg)] disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
+                className="px-2 py-1 border-2 rounded-lg border-neutral-400 focus:border-[var(--fg)] focus:outline focus:outline-[var(--fg)] disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
             />
             <input
                 type="email"
                 placeholder="email"
-                class="px-2 py-1 border-2 rounded-lg border-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-[var(--fg)] focus:outline focus:outline-[var(--fg)] focus:invalid:border-red-500 focus:invalid:outline-red-500 disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
+                className="px-2 py-1 border-2 rounded-lg border-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-[var(--fg)] focus:outline focus:outline-[var(--fg)] focus:invalid:border-red-500 focus:invalid:outline-red-500 disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
             />
             <input
                 type="password"
                 placeholder="password"
-                class="px-2 py-1 border-2 rounded-lg border-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-[var(--fg)] focus:outline focus:outline-[var(--fg)] disabled:shadow-none"
+                className="px-2 py-1 border-2 rounded-lg border-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-[var(--fg)] focus:outline focus:outline-[var(--fg)] disabled:shadow-none"
             />
             <button className="bg-neutral-400 hover:bg-neutral-300 rounded-lg px-2 py-1 mt-2 font-semibold cursor-pointer">SignUp</button>
         </div>
@@ -88,17 +88,17 @@ function Example1() {
                 <input
                     type="text"
                     placeholder="full name"
-                    class="px-1 mt-6 py-1 border-b-2 border-b-neutral-400 focus:border-b-black focus:outline-none disabled:shadow-none"
+                    className="px-1 mt-6 py-1 border-b-2 border-b-neutral-400 focus:border-b-black focus:outline-none disabled:shadow-none"
                 />
                 <input
                     type="email"
                     placeholder="email"
-                    class="px-1 py-1 border-b-2 border-b-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-[var(--fg)] focus:outline-none focus:invalid:border-red-500 focus:invalid:outline-red-500 disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
+                    className="px-1 py-1 border-b-2 border-b-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-[var(--fg)] focus:outline-none focus:invalid:border-red-500 focus:invalid:outline-red-500 disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
                 />
                 <input
                     type="password"
                     placeholder="password"
-                    class="px-1 py-1 border-b-2 border-b-neutral-400 focus:border-b-[var(--fg)] focus:outline-none disabled:shadow-none"
+                    className="px-1 py-1 border-b-2 border-b-neutral-400 focus:border-b-[var(--fg)] focus:outline-none disabled:shadow-none"
                 />
                 <button className="bg-neutral-400 w-full hover:bg-neutral-300 rounded-lg px-2 py-1 mt-8 font-semibold cursor-pointer">SignUp</button>
             </span>
@@ -118,7 +118,7 @@ function Example2() {
                 <input
                     type="email"
                     placeholder="email"
-                    class="px-2 py-1 border-2 rounded-lg border-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-[var(--fg)] focus:outline focus:outline-[var(--fg)] focus:invalid:border-red-500 focus:invalid:outline-red-500 disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
+                    className="px-2 py-1 border-2 rounded-lg border-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-[var(--fg)] focus:outline focus:outline-[var(--fg)] focus:invalid:border-red-500 focus:invalid:outline-red-500 disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
                 />
                 <button className="bg-neutral-400 w-full hover:bg-neutral-300 rounded-lg px-2 py-1 font-semibold cursor-pointer">Continue</button>
             </span>
@@ -133,17 +133,17 @@ const Code1 = `function SignUp() {
             <input
                 type="text"
                 placeholder="full name"
-                class="px-2 py-1 border-2 rounded-lg border-neutral-400 focus:border-black focus:outline focus:outline-black disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
+                className="px-2 py-1 border-2 rounded-lg border-neutral-400 focus:border-black focus:outline focus:outline-black disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
             />
             <input
                 type="email"
                 placeholder="email"
-                class="px-2 py-1 border-2 rounded-lg border-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-black focus:outline focus:outline-black focus:invalid:border-red-500 focus:invalid:outline-red-500 disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
+                className="px-2 py-1 border-2 rounded-lg border-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-black focus:outline focus:outline-black focus:invalid:border-red-500 focus:invalid:outline-red-500 disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
             />
              <input
                 type="password"
                 placeholder="password"
-                class="px-2 py-1 border-2 rounded-lg border-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-black focus:outline focus:outline-black disabled:shadow-none"
+                className="px-2 py-1 border-2 rounded-lg border-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-black focus:outline focus:outline-black disabled:shadow-none"
             />
             <button className="bg-neutral-400 hover:bg-neutral-300 rounded-lg px-2 py-1 mt-2 font-semibold cursor-pointer">SignUp</button>
         </div>
@@ -161,17 +161,17 @@ const Code2 = `function Example1() {
                 <input
                     type="text"
                     placeholder="full name"
-                    class="px-1 mt-6 py-1 border-b-2 border-b-neutral-400 focus:border-b-black focus:outline-none disabled:shadow-none"
+                    claclassNamess="px-1 mt-6 py-1 border-b-2 border-b-neutral-400 focus:border-b-black focus:outline-none disabled:shadow-none"
                 />
                 <input
                     type="email"
                     placeholder="email"
-                    class="px-1 py-1 border-b-2 border-b-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-black focus:outline-none focus:invalid:border-red-500 focus:invalid:outline-red-500 disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
+                    className="px-1 py-1 border-b-2 border-b-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-black focus:outline-none focus:invalid:border-red-500 focus:invalid:outline-red-500 disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
                 />
                 <input
                     type="password"
                     placeholder="password"
-                    class="px-1 py-1 border-b-2 border-b-neutral-400 focus:border-b-black focus:outline-none disabled:shadow-none"
+                    className="px-1 py-1 border-b-2 border-b-neutral-400 focus:border-b-black focus:outline-none disabled:shadow-none"
                 />
                 <button className="bg-neutral-400 w-full hover:bg-neutral-300 rounded-lg px-2 py-1 mt-8 font-semibold cursor-pointer">SignUp</button>
             </span>
@@ -192,7 +192,7 @@ const Code3 = `function Example2() {
                 <input
                     type="email"
                     placeholder="email"
-                    class="px-2 py-1 border-2 rounded-lg border-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-black focus:outline focus:outline-black focus:invalid:border-red-500 focus:invalid:outline-red-500 disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
+                    className="px-2 py-1 border-2 rounded-lg border-neutral-400 invalid:border-red-500 invalid:text-red-600 focus:border-black focus:outline focus:outline-black focus:invalid:border-red-500 focus:invalid:outline-red-500 disabled:border-gray-200 disabled:bg-neutal-50 disabled:text-neutral-500 disabled:shadow-none"
                 />
                 <button className="bg-neutral-400 w-full hover:bg-neutral-300 rounded-lg px-2 py-1 font-semibold cursor-pointer">Continue</button>
             </span>

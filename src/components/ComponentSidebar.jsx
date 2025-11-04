@@ -10,7 +10,6 @@ export default function ComponentSidebar() {
   const location = useLocation();
   const [activeId, setActiveId] = useState(items?.[0]?.id);
 
-  // Observe headings to highlight active section
   useEffect(() => {
     if (!items?.length) return;
     const observer = new IntersectionObserver(
@@ -29,7 +28,6 @@ export default function ComponentSidebar() {
 
   const toc = useMemo(() => items ?? [], [items]);
 
-  // Prev/Next: compute neighbors in the flattened catalog
   const idx = catalog.findIndex((c) => c.path === location.pathname);
   const prev = idx > 0 ? catalog[idx - 1] : null;
   const next = idx >= 0 && idx < catalog.length - 1 ? catalog[idx + 1] : null;

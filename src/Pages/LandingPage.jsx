@@ -78,7 +78,7 @@ export default function LandingPage() {
 
       <section className="relative z-10 mx-auto mt-12 w-full max-w-none overflow-hidden">
         <Marquee
-          items={["Badges", "Buttons", "Cards", "Inputs", "Text", "Animation", "Pages", "Overlays", "Avatars", "Tabs"]}
+          items={["Badges", "Buttons", "Cards", "Inputs", "Text", "Animation", "Pages"]}
         />
       </section>
 
@@ -96,8 +96,8 @@ export default function LandingPage() {
         >
           {[
             { t: "Pragmatic API", d: "Small surface area, quick to learn." },
-            { t: "Composable", d: "Headless patterns with slots & tokens." },
-            { t: "Polished", d: "Micro‑interactions that feel right." },
+            { t: "Composable", d: "Headless patterns with slots." },
+            { t: "Polished", d: "Micro‑interactions that feels right." },
             { t: "Themeable", d: "Use CSS variables; light & dark out‑of‑box." }
           ].map((f) => (
             <motion.li key={f.t} variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} className="rounded-xl border border-foreground/15 bg-[var(--bg)] p-4">
@@ -108,7 +108,7 @@ export default function LandingPage() {
         </motion.ul>
       </section>
 
-      <section className="relative z-10 mx-auto my-20 w-full px-5">
+      <section className="relative z-10 mx-auto my-10 w-full px-5">
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}

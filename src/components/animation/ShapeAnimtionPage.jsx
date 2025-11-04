@@ -75,7 +75,7 @@ function SquareAnimation() {
 export function TriangleAnimation() {
     return (
         <div>
-            <svg width="300" height="300">
+            <svg className="lg:w-[300px] lg:h-[300px]">
                 <path d="M150,0 225,150 75,150" className="fill-[var(--fg)] hover:fill-[var(--bg)]" />
                 <path d="M0,300 75,150 150,300" className="fill-[var(--fg)] hover:fill-[var(--bg)]" />
                 <path d="M75,150 225,150 150,300" className="fill-[var(--fg)] hover:fill-[var(--bg)]" />

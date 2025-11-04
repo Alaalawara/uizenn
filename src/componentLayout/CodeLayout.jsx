@@ -67,7 +67,7 @@ export default function CodeLayout({
             {tab === "preview" ? (
                 <div className="rounded-lg border border-foreground w-full">
                     <div className="relative h-[420px] w-full">
-                        <div className="absolute inset-0 grid place-items-center">
+                        <div className="absolute inset-0 p-2 grid place-items-center">
                             {onRefresh ? (
                                 previewContent
                             ) : enableRefresh ? (

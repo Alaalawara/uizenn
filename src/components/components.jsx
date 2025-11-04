@@ -29,7 +29,7 @@ export default function Components() {
     return (
         <div className="flex flex-col gap-8">
             <header className="flex flex-col gap-2">
-                <h1 className="text-2xl font-bold">Components</h1>
+                <h2 className="text-2xl font-bold">Components</h2>
                 <p className="text-foreground/70">
                     Here you can find all the components available in the library. I am working on adding more components.
                 </p>
@@ -47,7 +47,7 @@ export default function Components() {
                     return (
                         <li key={section}>
                             <div className="h-full relative rounded-xl border border-foreground/15 bg-[var(--bg)] overflow-hidden hover:bg-foreground/5">
-                                {/* Decorative gradient blob */}
+
                                 <div className={`pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gradient-to-br ${meta.color} opacity-20 blur-xl`} />
 
                                 <div className="relative p-5 flex flex-col gap-3">

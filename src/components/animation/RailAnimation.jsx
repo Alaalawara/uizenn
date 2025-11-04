@@ -35,7 +35,7 @@ export default function RailAnimationPage() {
 
       <CodeLayout filename='RailAnimation.jsx' code={code} enableRefresh>
            {({ refreshKey }) => (
-                    <div key={refreshKey} className="w-[600px]">
+                    <div key={refreshKey} className="lg:w-[600px] w-[200px]">
                          <RailAnimaton />
                     </div>
                 )}
