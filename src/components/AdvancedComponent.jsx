@@ -2,7 +2,7 @@ import { Roadmap } from "./animation/RoadMapPage";
 import { FAQ } from './accordion/SimpleAccordionPage';
 import { RailAnimaton } from "./animation/RailAnimation";
 import { useMotionValue } from "framer-motion";
-import PlanetDynamic from "./animation/PlanetDyanmic";
+import { PlanetDynamic } from "./animation/PlanetAnimationPage";
 
 export default function AdvancedComponent() {
   const types = ["earth", "mars", "moon", "saturn", "sun", "neptune"];

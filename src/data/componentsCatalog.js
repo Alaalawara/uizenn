@@ -8,6 +8,7 @@ export const componentsCatalog = [
     { title: "RoadMap Animation", path: "/components/animation/roadmap", section: "Animation" },
     { title: "Stats Animation", path: "/components/animation/statsanimation", section: "Animation" },
     { title: "Rail Animation", path: "/components/animation/railanimation", section: "Animation" },
+    { title: "Planet Animation", path: "/components/animation/planetanimation", section: "Animation" },
 
     // Badge
     { title: "Simple Badge", path: "/components/badge/simplebadge", section: "Badges" },

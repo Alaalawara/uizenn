@@ -39,6 +39,7 @@ import ShapeAnimationPage from "./components/animation/ShapeAnimtionPage.jsx";
 import RoadMapPage from "./components/animation/RoadMapPage.jsx";
 import StatsAnimationPage from "./components/animation/StatsAnimationPage.jsx";
 import RailAnimationPage from "./components/animation/RailAnimation.jsx";
+import PlanetAnimationPage from "./components/animation/PlanetAnimationPage.jsx";
 
 //Accordion
 import SimpleAccordionPage from "./components/accordion/SimpleAccordionPage.jsx";
@@ -99,6 +100,7 @@ const router = createBrowserRouter([
             { path: "animation/roadmap", element: <RoadMapPage /> },
             { path: "animation/statsanimation", element: <StatsAnimationPage /> },
             { path: "animation/railanimation", element: <RailAnimationPage /> },
+            { path: "animation/planetanimation", element: <PlanetAnimationPage /> },
 
             //accordion
             { path: "accordion/simpleaccordion", element: <SimpleAccordionPage /> },
