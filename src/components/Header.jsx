@@ -39,7 +39,7 @@ function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      className="border rounded-lg border-foreground/20 dark:border-foreground cursor-pointer hover:bg-secondary"
+      className="border rounded-lg border-foreground/20 cursor-pointer hover:bg-secondary"
       aria-label="dark-light mode"
     >
       <svg xmlns="http://www.w3.org/2000/svg"  width={30} height={30} className='dark:fill-[var(--fg)] dark:hover:fill-[var(--bg)] hover:bg-secondary rounded-lg' viewBox="0 0 64 64">
