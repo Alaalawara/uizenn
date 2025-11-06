@@ -1,52 +1,3 @@
-import { useEffect } from "react";
-import CodeLayout from "../../componentLayout/CodeLayout";
-import { useToc } from "../../contexts/TocContext";
-import Planet from "./Planet?raw";
-
-export default function PlanetAnimationPage() {
-   const types = ["earth", "mars", "moon", "saturn", "sun", "neptune"];
-  const { setItems } = useToc();
-
-  const hasInstallation = true;
-  const hasUsage = true;
-  const hasExamples = true;
-
-  useEffect(() => {
-    const list = [
-      { id: "usage", label: "Usage" },
-      { id: "examples", label: "Examples" }
-    ]
-      .filter((s) =>
-        (s.id === "usage" && hasUsage) ||
-        (s.id === "examples" && hasExamples)
-      );
-    setItems?.(list);
-    return () => setItems?.([]);
-  }, [setItems, hasInstallation, hasUsage, hasExamples]);
-
-  return (
-    <div className="flex flex-col gap-10">
-      <div id="usage" className="flex flex-col gap-4 items-start scroll-mt-24">
-        <h2 className="font-bold tracking-tight text-2xl">Planet Animation</h2>
-        <p className="text-foreground">Stunning, Wire-frame Planet Simulator that captures the dynamic wire-frame of our solar system planet details</p>
-      </div>
-
-      <CodeLayout filename="PlanetAnimaton.jsx" code={Planet}>
-        <section className="relative mx-auto py-6 w-full max-w-6xl px-5">
-        <div className="flex flex-wrap gap-8 justify-center items-center p-6">
-          {types.map(type => (
-            <div key={type} className="flex flex-col items-center gap-2">
-              <PlanetAnimaton type={type} size={120} speed={16 + Math.random() * 12} />
-            </div>
-          ))}
-        </div>
-      </section>
-      </CodeLayout>
-
-    </div>
-  );
-}
-
 const PLANET_DESIGNS = {
   earth: {
     bg: "radial-gradient(circle at 60% 30%, #143951cc 65%, #2f87d6 100%)",
@@ -104,7 +55,7 @@ const PLANET_DESIGNS = {
   },
 };
 
-export function PlanetAnimaton({ size = 200, type = "earth", speed = 16 }) {
+export default function Planet({ size = 200, type = "earth", speed = 16 }) {
   const {
     bg, rim, lines, meridians, shadow, highlight, wirefx: { l: linesN, m: mediansN }
   } = PLANET_DESIGNS[type] || PLANET_DESIGNS.earth;

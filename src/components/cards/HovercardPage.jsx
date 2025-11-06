@@ -1,12 +1,55 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import {
   motion,
   useMotionTemplate,
   useMotionValue,
   useSpring,
 } from "framer-motion";
+import CodeLayout from '../../componentLayout/CodeLayout';
+import { useToc } from "../../contexts/TocContext";
+import InstallationLayout from '../../componentLayout/InstallationLayout';
+import HoverCard from "./Hovercard?raw";
 
-export default function HoverCard() {
+export default function HoverCardPage() {
+  const { setItems } = useToc();
+
+  const hasInstallation = true;
+  const hasUsage = true;
+
+  useEffect(() => {
+    const list = [
+      { id: "usage", label: "Usage" },
+      { id: "installation", label: "Installation" },
+    ]
+      .filter((s) =>
+        (s.id === "usage" && hasUsage) ||
+        (s.id === "installation" && hasInstallation)
+      );
+    setItems?.(list);
+    return () => setItems?.([]);
+  }, [setItems, hasInstallation, hasUsage]);
+
+
+  return (
+    <div className="flex flex-col gap-10">
+      <div id="usage" className="flex flex-col gap-4 items-start scroll-mt-24">
+        <h2 className="font-bold tracking-tight text-2xl">Hover Card 3D</h2>
+        <p className="text-foreground">Interactive 3D hover card built with Framer Motion and Tailwind CSS.</p>
+      </div>
+
+      <CodeLayout filename="hoverCard3d.jsx" code={HoverCard}>
+        <Example1 />
+      </CodeLayout>
+
+      <div id='installation' className='scroll-mt-24'>
+        <InstallationLayout />
+      </div>
+
+    </div>
+  );
+}
+
+const Example1 = () => {
   return (
     <div className="grid w-full max-w-[800px] h-[400px] min-h-[400px] max-h-[400px] place-content-center px-4 py-12">
       <TiltCard />

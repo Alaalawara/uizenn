@@ -34,9 +34,9 @@ export default function ComponentSidebar() {
 
   return (
     <aside className="sticky top-20 h-[calc(100vh-5rem)] overflow-auto pr-3">
-      <div className="text-xs uppercase tracking-wide text-foreground/60 mb-3">On This Page</div>
+      <div className="text-xs uppercase tracking-wide text-foreground mb-3">On This Page</div>
       {!toc.length ? (
-        <div className="text-sm text-foreground/60 mb-6">No sections</div>
+        <div className="text-sm text-foreground/80 mb-6">No sections</div>
       ) : (
         <nav className="flex flex-col gap-2 mb-6">
           {toc.map((s) => (

@@ -1,56 +1,14 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import CodeLayout from '../../componentLayout/CodeLayout';
-import { useToc } from "../../contexts/TocContext";
-import InstallationLayout from '../../componentLayout/InstallationLayout';
-import BlockCard from "./BlockCard?raw";
 
-export default function BlockTextCardPage() {
-  const { setItems } = useToc();
-
-  const hasInstallation = true;
-  const hasUsage = true;
-
-  useEffect(() => {
-    const list = [
-      { id: "usage", label: "Usage" },
-      { id: "installation", label: "Installation" },
-    ]
-      .filter((s) =>
-        (s.id === "usage" && hasUsage) ||
-        (s.id === "installation" && hasInstallation)
-      );
-    setItems?.(list);
-    return () => setItems?.([]);
-  }, [setItems, hasInstallation, hasUsage]);
-
-  return (
-    <div className="flex flex-col gap-10">
-      <div id="usage" className="flex flex-col gap-4 items-start scroll-mt-24">
-        <h2 className="font-bold tracking-tight text-2xl">Animated Block Text Card</h2>
-        <p className="text-foreground">Interactive on tap button built with Framer Motion.</p>
-      </div>
-
-      <CodeLayout filename="AnimatedBlockTextCard.jsx" code={BlockCard}>
-            <Example />
-      </CodeLayout>
-
-      <div id='installation' className='scroll-mt-24'>
-        <InstallationLayout />
-      </div>
-
-    </div>
-  );
-}
-
-const Example = () => {
+export default function BlockCard(){
   return (
     <div className="flex items-center justify-center py-16 text-neutral-800">
       <BlockInTextCard
         tag="/support"
         text={
           <>
-            <strong>uizenn?</strong> what? why? when? how? 
+            <strong>uizenn?</strong>what? why? when? how? 
           </>
         }
         examples={[
@@ -77,7 +35,7 @@ const BlockInTextCard = ({ tag, text, examples }) => {
         <hr className="border-foreground" />
       </div>
       <button className="w-full rounded-lg border border-neutral-950 py-2 text-sm font-medium transition-colors bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:opacity-80">
-        support uizenn
+        Support uizenn
       </button>
     </div>
   );

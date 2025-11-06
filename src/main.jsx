@@ -16,7 +16,7 @@ import OnTapButtonPage from "./components/buttons/OntapButtonPage.jsx";
 
 //cards
 import SimpleCardPage from "./components/cards/SimpleCardPage.jsx";
-import HoverCardPage from "./components/cards/Hovercard.jsx";
+import HoverCardPage from "./components/cards/HovercardPage.jsx";
 import BlockTextCardPage from "./components/cards/BlockTextCards.jsx";
 import StackCardsPage from "./components/cards/StackCardsPage.jsx";
 import TiltCardsPage from "./components/cards/TiltCardPage.jsx";

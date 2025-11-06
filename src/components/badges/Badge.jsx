@@ -1,5 +1,4 @@
-// src/pages/components/ButtonPage.jsx
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import CodeLayout from '../../componentLayout/CodeLayout';
 import { useToc } from '../../contexts/TocContext';
 
@@ -51,8 +50,6 @@ const code = `function SimpleBadge() {
 `;
 
 export default function BadgePage() {
-    const [tab, setTab] = useState('preview');
-    const [copied, setCopied] = useState(false);
      const { setItems } = useToc();
 
   const hasUsage = true;
@@ -68,16 +65,6 @@ export default function BadgePage() {
     return () => setItems?.([]);
   }, [setItems, hasUsage]);
 
-
-    const copy = async () => {
-        try {
-            await navigator.clipboard.writeText(code);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 1200);
-        } catch {
-        }
-    };
-
     return (
         <div className="flex flex-col gap-10">
             <div id='usage' className="flex flex-col gap-4 items-start justify-between scroll-mt-24">
@@ -87,7 +74,7 @@ export default function BadgePage() {
                 </p>
             </div>
 
-            <CodeLayout tab={tab} setTab={setTab} filename='Badge.jsx' code={code} copied={copied} copy={copy}>
+            <CodeLayout filename='Badge.jsx' code={code} language='jsx'>
                 <SimpleBadge />
             </CodeLayout>
 

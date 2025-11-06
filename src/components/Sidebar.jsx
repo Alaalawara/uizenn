@@ -34,7 +34,7 @@ export default function Sidebar() {
       >
         {groups.map(([section, links]) => (
           <div key={section} className="mb-6 min-w-0">
-            <div className="px-2 pb-1 text-base uppercase font-medium tracking-wide text-foreground/70">
+            <div className="px-2 pb-1 text-base uppercase font-medium tracking-wide text-foreground">
               <span className="break-words">{section}</span>
             </div>
 
@@ -47,7 +47,7 @@ export default function Sidebar() {
                       [
                         base,
                         hover,
-                        isActive ? active : "text-foreground/90",
+                        isActive ? active : "text-foreground/80",
                         "truncate md:whitespace-normal md:truncate-0",
                         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30",
                       ].join(" ")

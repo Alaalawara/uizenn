@@ -2,7 +2,7 @@ import { Roadmap } from "./animation/RoadMapPage";
 import { FAQ } from './accordion/SimpleAccordionPage';
 import { RailAnimaton } from "./animation/RailAnimation";
 import { useMotionValue } from "framer-motion";
-import { PlanetDynamic } from "./animation/PlanetAnimationPage";
+import PlanetAnimaton from "./animation/Planet";
 
 export default function AdvancedComponent() {
   const types = ["earth", "mars", "moon", "saturn", "sun", "neptune"];
@@ -22,7 +22,7 @@ export default function AdvancedComponent() {
         <div className="flex flex-wrap gap-8 justify-center items-center p-6">
           {types.map(type => (
             <div key={type} className="flex flex-col items-center gap-2">
-              <PlanetDynamic type={type} size={120} speed={16 + Math.random() * 12} />
+              <PlanetAnimaton type={type} size={120} speed={16 + Math.random() * 12} />
             </div>
           ))}
         </div>

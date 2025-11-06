@@ -46,7 +46,7 @@ export default function RoadMapPage() {
 
             <CodeLayout filename='MagneticButton.jsx' code={code} enableRefresh>
                 {({ refreshKey }) => (
-                    <div key={refreshKey} className="lg:w-[600px] w-[200px]">
+                    <div key={refreshKey} className="lg:w-[600px] w-[200px] flex justify-center items-center">
                         <Roadmap />
                     </div>
                 )}
