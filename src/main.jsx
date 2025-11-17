@@ -13,6 +13,7 @@ import NotFound from "./Pages/notfound.jsx";
 import ButtonPage from "./components/buttons/ButtonPage.jsx";
 import ThreedButtonPage from "./components/buttons/3dbuttonPage.jsx";
 import OnTapButtonPage from "./components/buttons/OntapButtonPage.jsx";
+import CapsuleButtonPage from "./components/buttons/CapsuleButtonPage.jsx";
 
 //cards
 import SimpleCardPage from "./components/cards/SimpleCardPage.jsx";
@@ -79,6 +80,7 @@ const router = createBrowserRouter([
           { path: "buttons/3d-button", element: <ThreedButtonPage /> },
           { path: "buttons/ontapbutton", element: <OnTapButtonPage /> },
           { path: "buttons/magneticbutton", element: <MagneticButtonPage /> },
+          { path: "buttons/capsulebutton", element: <CapsuleButtonPage /> },
 
           //cards
           { path: "cards/simplecard", element: <SimpleCardPage /> },

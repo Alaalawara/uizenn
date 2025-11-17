@@ -20,6 +20,7 @@ export const componentsCatalog = [
     { title: "3D Button", path: "/components/buttons/3d-button", section: "Buttons" },
     { title: "On Tap Button", path: "/components/buttons/ontapbutton", section: "Buttons" },
     { title: "Magnetic Button", path: "/components/buttons/magneticbutton", section: "Buttons" },
+    { title: "Capsule Button", path: "/components/buttons/capsulebutton", section: "Buttons" },
 
     // Cards
     { title: "Simple Card", path: "/components/cards/simplecard", section: "Cards" },

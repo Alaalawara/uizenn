@@ -1,36 +1,65 @@
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
-export default function Footer() {
+const LEGO_COLORS = [
+  "#5187C4", "#FFCF2F", "#38C172", "#F2545B", "#18A4F5", "#333", "#A678DD", "#FC9642"
+];
 
-  return (
-    <footer className="p-10 md:px-10 text-sm w-full rounded-3xl border border-[var(--fg)] flex flex-row justify-between items-center">
-      <div>
-        <FooterLogo />
-      </div>
-
-      {/* line break */}
-      <div className="w-0.5 h-22 bg-[var(--fg)]" />
-
-      <div className="flex flex-col text-[var(--fg)] text-2xl font-medium">
-        <Link to='/components' className="hover:underline underline-offset-4">components</Link>
-      </div>
-
-      {/* line break */}
-      <div className="w-0.5 h-22 bg-[var(--fg)]" />
-
-      {/* small info */}
-      <div className="grid grid-cols-2 gap-4 text-[var(--fg)] text-2xl font-medium">
-        <a href="https://swarajdev.vercel.app" target="_blank" rel="noreferrer" className="hover:underline underline-offset-4">Portfolio</a>
-        <a href="https://github.com/Alaalawara" target="_blank" rel="noreferrer" className="hover:underline underline-offset-4">Github</a>
-        <a href="https://x.com/loops_infinity" target="_blank" rel="noreferrer" className="hover:underline underline-offset-4">X</a>      </div>
-    </footer>
-  );
+function shuffleBlocks(arr) {
+  return arr
+    .map((v) => [Math.random(), v])
+    .sort((a, b) => a[0] - b[0])
+    .map((a) => a[1]);
 }
 
-function FooterLogo() {
+export default function LegoFooter() {
+  const [assembled, setAssembled] = useState(true);
+  const [order, setOrder] = useState(shuffleBlocks([...Array(LEGO_COLORS.length).keys()]));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAssembled((a) => !a);
+      setOrder(shuffleBlocks([...Array(LEGO_COLORS.length).keys()]));
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className='flex flex-col'>
-      <h1 className="text-[var(--fg)]" style={{ fontFamily: "MADE GoodTime Script" }}>uizenn</h1>
-    </div>
-  )
+    <footer className="w-full flex items-end justify-center py-12 relative overflow-x-hidden bg-zinc-900">
+      <div
+        className="flex gap-1 select-none"
+        style={{ height: 60 }}
+      >
+        {order.map((i, idx) => (
+          <div
+            key={i}
+            className="rounded shadow-md transition-all duration-700 lego-brick"
+            style={{
+              // Animate as scattered pieces or stacked footer
+              background: LEGO_COLORS[i],
+              width: 48,
+              height: 48,
+              transform: assembled
+                ? "translateY(0) scale(1)"
+                : `translateY(${Math.sin(i) * 80 + 48}px) scale(${0.8 + Math.sin(i)*0.03}) rotate(${(i%2)*20-10}deg)`,
+              opacity: assembled ? 1 : 0.6,
+              zIndex: LEGO_COLORS.length - idx,
+              transitionDelay: `${idx * 60}ms`
+            }}
+          />
+        ))}
+      </div>
+      <p className="absolute bottom-2 left-0 w-full text-center text-zinc-200 text-sm tracking-wide animate-fadein">
+        Assembled with uizenn · <span className="font-mono text-yellow-300">v1.0</span>
+      </p>
+      <style>{`
+        .lego-brick {
+          box-shadow: 0 2px 14px 0 #0002;
+        }
+        @keyframes fadein { 0% { opacity: 0; } 100%{ opacity: 1; } }
+        .animate-fadein { 
+          animation: fadein 1.6s cubic-bezier(.45,1.78,.36,1) 1800ms both; 
+        }
+      `}</style>
+    </footer>
+  );
 }

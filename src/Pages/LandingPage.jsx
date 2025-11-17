@@ -5,6 +5,7 @@ import { TiltCards } from '../components/cards/TiltCardPage'
 import { MagneticButton } from "../components/buttons/MagneticButtonPage";
 import { Marquee } from "../components/texts/TextMotionPage";
 import { FloatBadge } from "../components/badges/FloatBadgePage";
+import VenomFooter from '../components/Footer'
 
 export default function LandingPage() {
   const navigate = useNavigate();
