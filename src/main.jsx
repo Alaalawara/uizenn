@@ -21,6 +21,7 @@ import HoverCardPage from "./components/cards/HovercardPage.jsx";
 import BlockTextCardPage from "./components/cards/BlockTextCards.jsx";
 import StackCardsPage from "./components/cards/StackCardsPage.jsx";
 import TiltCardsPage from "./components/cards/TiltCardPage.jsx";
+import JobUiCardPage from "./components/cards/JobUICardPage.jsx";
 
 //badge
 import BadgePage from "./components/badges/Badge.jsx";
@@ -88,6 +89,7 @@ const router = createBrowserRouter([
           { path: "cards/blocktextCard", element: <BlockTextCardPage /> },
           { path: "cards/stackcards", element: <StackCardsPage /> },
           { path : "cards/tiltcards", element : <TiltCardsPage/>},
+          { path : "cards/jobuicard", element : <JobUiCardPage/>},
 
           //text-field
            { path: "text/textbounce", element: <TextBouncePage /> },

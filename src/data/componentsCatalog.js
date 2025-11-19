@@ -28,6 +28,7 @@ export const componentsCatalog = [
     { title: "Block Text Card", path: "/components/cards/blocktextCard", section: "Cards" },
     { title: "Stack Cards", path: "/components/cards/stackcards", section: "Cards" },
     { title: "Tilt Cards", path: "/components/cards/tiltcards", section: "Cards" },
+    { title: "Job Ui Cards", path: "/components/cards/jobuicard", section: "Cards" },
 
     // Input
     { title: "Input Field", path: "/components/input/inputfield", section: "Input Field" },
